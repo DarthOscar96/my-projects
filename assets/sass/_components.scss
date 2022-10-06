@@ -1,0 +1,120 @@
+@use "globals";
+
+@mixin tech-icons {
+    padding: 1rem;
+    background-color: globals.$color-3;
+
+    h4 {
+        color: globals.$color-1;
+        font-weight: 600;
+        padding: .8rem 0;
+    }
+
+    .technologies {
+        i {
+            margin-left: .3rem;
+            font-size: 1.5rem;
+            padding: .6rem;
+            box-shadow: 0 0 10px globals.$color-5;
+            color: globals.$color-6;
+            background-color: globals.$color-1;
+            border-radius: 50%;
+        }
+    }
+}
+
+@mixin button1 {
+
+    text-decoration: none;
+    padding: .6rem;
+    border-radius: 1rem;
+    border: .18rem solid globals.$color-1;
+    color: globals.$color-1;
+    font-weight: 800;
+    transition: background-color 500ms;
+
+    &:hover {
+        background-color: globals.$color-1;
+        color: globals.$color-3;
+    }
+}
+
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+
+[data-title]:after {
+    font-family: 'Ubuntu', sans-serif;
+    content: attr(data-title);
+    background-color: globals.$color-1;
+    color: globals.$color-3;
+    font-size: .8rem;
+    position: absolute;
+    padding: .5rem;
+    bottom: -2rem;
+    left: 8%;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px globals.$color-1;
+    opacity: 0;
+    z-index: 99999;
+    visibility: hidden;
+    border-radius: .8rem;
+}
+
+[data-title] {
+    position: relative;
+}
+
+.card {
+    border-radius: 2rem;
+    box-shadow: 0 0 10px globals.$color-7;
+    width: 20rem;
+
+    .card-img {
+        img {
+            width: 100%;
+            border-radius: 2rem 2rem 0 0;
+        }
+    }
+
+    .card-description {
+        padding: 1rem;
+        background-color: globals.$color-3;
+        height: 7.5rem;
+
+        h3 {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: globals.$color-1;
+        }
+
+        p {
+            padding-top: .4rem;
+            color: globals.$color-5;
+        }
+    }
+
+    .tech-icons {
+        @include tech-icons();
+
+    }
+
+    .card-footer {
+        background-color: globals.$color-6;
+        border-radius: 0 0 2rem 2rem;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+
+        .button {
+            @include button1();
+        }
+
+    }
+}
+
+.profile-icons {
+    @include tech-icons();
+}
